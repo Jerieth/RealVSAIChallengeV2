@@ -1,0 +1,53 @@
+# Logs
+logs/
+*.log
+php_server.log
+
+# Sensitive/environment data
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# User-specific files
+.DS_Store
+Thumbs.db
+.user.ini
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Session and cache data
+sessions/
+cache/
+
+# Composer
+vendor/
+composer.lock
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Replit specific
+.replit_custom_server
+.ip_tracking_initialized
