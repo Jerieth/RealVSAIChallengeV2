@@ -1,0 +1,34 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# If the requested filename exists, serve it directly
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# If the requested directory exists, serve it directly
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Otherwise, route everything to our router
+RewriteRule ^ index.php [L]
+
+# PHP configuration options
+php_flag display_errors on
+php_value upload_max_filesize 50M
+php_value post_max_size 50M
+php_value max_execution_time 300
+php_value max_input_time 300
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Disable directory browsing
+Options -Indexes
+
+# Score verification secret key
+SetEnv SCORE_SECRET_KEY "G7&^32@!03920AnRt9@!"
