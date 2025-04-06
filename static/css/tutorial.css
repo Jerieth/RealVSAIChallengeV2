@@ -1,0 +1,37 @@
+
+.tutorial-mascot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 120px;
+  height: 120px;
+  z-index: 1000;
+  animation: bounce 1s infinite;
+}
+
+.tutorial-bubble {
+  position: fixed;
+  bottom: 150px;
+  right: 160px;
+  max-width: 300px;
+  padding: 15px;
+  background: #2a3950;
+  border-radius: 10px;
+  border: 2px solid #50b2ea;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tutorial-step {
+  display: none;
+}
+
+.tutorial-step.active {
+  display: block;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

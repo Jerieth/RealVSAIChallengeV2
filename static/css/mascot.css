@@ -1,0 +1,93 @@
+.pixel-mascot-container {
+    position: fixed;
+    bottom: 0px; /* Moved 20px lower as requested */
+    left: 20px;
+    z-index: 9999; /* Very high z-index to appear on top of everything including modals */
+    display: flex;
+    align-items: flex-end;
+    pointer-events: none; /* Allow clicks to pass through to underlying elements */
+    transition: transform 0.3s ease; /* Add smooth transition for mascot movement */
+}
+
+/* Tutorial speech bubble */
+.tutorial-bubble {
+    position: fixed;
+    bottom: 160px; /* Position above the mascot */
+    left: 80px;
+    background-color: white;
+    color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 250px;
+    z-index: 9998; /* Below pixel mascot but above most content */
+    font-size: 14px;
+    line-height: 1.4;
+    pointer-events: auto; /* Allows interaction with the bubble */
+    opacity: 0.95;
+    transition: all 0.3s ease;
+}
+
+/* For bubble text transition effect */
+.tutorial-bubble.changing {
+    opacity: 0.7;
+    transform: scale(0.98);
+}
+
+/* Speech bubble arrow */
+.tutorial-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: white transparent transparent;
+}
+
+/* Media query for bubble on small screens */
+@media (max-width: 768px) {
+    .tutorial-bubble {
+        bottom: 120px;
+        left: 50px;
+        max-width: 200px;
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+
+/* Make sure the mascot image can receive clicks */
+.pixel-mascot {
+    pointer-events: auto;
+    width: 150px;
+    height: auto;
+    max-width: 150px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* For image transition effect */
+.pixel-mascot.changing {
+    opacity: 0.7;
+    transform: scale(0.95);
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .pixel-mascot-container {
+        bottom: 10px; /* Also moved 20px lower on mobile */
+        left: 10px;
+    }
+    
+    .pixel-mascot {
+        width: 100px;
+        max-width: 100px;
+    }
+}
+
+/* Make sure modal dialogs appear above Pixel */
+.modal {
+    z-index: 10000; /* Higher than the mascot's z-index */
+}
+
+/* No need for extra padding, mascot will float above content */

@@ -1,0 +1,552 @@
+/* Loading Animations CSS */
+
+/* Common animations components */
+.loading-animation {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* 1. Pixel Sorting Animation */
+.pixel-sorting-container {
+    width: 100%;
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.pixel-column {
+    position: absolute;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to top, #5d4fff, #63d8ff);
+    transition: height 0.5s ease;
+}
+
+/* 2. Camera Shutter Animation */
+.camera-shutter-container {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    background-color: #222;
+    border-radius: 8px;
+}
+
+.shutter-blade {
+    position: absolute;
+    background-color: #000;
+    transform-origin: center;
+    transition: transform 0.5s ease;
+}
+
+.shutter-blade.top-left {
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.shutter-blade.top-right {
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.shutter-blade.bottom-left {
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+.shutter-blade.bottom-right {
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+
+.camera-shutter-container.closed .shutter-blade {
+    transform: scale(1.5);
+}
+
+.shutter-lens {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #444 0%, #111 80%);
+    z-index: 10;
+    box-shadow: 0 0 15px rgba(0,0,0,0.8);
+}
+
+/* 3. AI Analysis Wave */
+.ai-wave-container {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    background-color: #111;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ai-wave {
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+.ai-wave-bar {
+    width: 4px;
+    height: 10px;
+    margin: 0 2px;
+    background: linear-gradient(to top, #5D4FFF, #63D8FF);
+    border-radius: 2px;
+    transition: height 0.2s ease;
+}
+
+/* 4. Image Recognition Animation */
+.image-recognition-container {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+    position: relative;
+    background-color: #222;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.recognition-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 2px;
+}
+
+.recognition-cell {
+    background-color: rgba(93, 79, 255, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.recognition-cell.highlight {
+    background-color: rgba(93, 79, 255, 0.8);
+    transform: scale(0.9);
+}
+
+.recognition-frame {
+    position: absolute;
+    border: 2px solid #5D4FFF;
+    box-shadow: 0 0 10px rgba(93, 79, 255, 0.6);
+    border-radius: 4px;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+/* 5. Battle Animation */
+.battle-container {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    background-color: #111;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.battle-side {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+}
+
+.battle-real {
+    background-color: rgba(40, 167, 69, 0.2);
+    border: 2px solid #28a745;
+}
+
+.battle-ai {
+    background-color: rgba(0, 123, 255, 0.2);
+    border: 2px solid #007bff;
+}
+
+.battle-text {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.battle-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.battle-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 0.7;
+    transition: transform 0.5s ease;
+}
+
+/* 6. Progress Bar Animation */
+.progress-bar-container {
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+
+.custom-progress {
+    height: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #5D4FFF, #63D8FF);
+    width: 0%;
+    transition: width 0.5s ease;
+    position: relative;
+}
+
+.progress-glow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 20px;
+    background: linear-gradient(to right, rgba(93, 79, 255, 0), #63D8FF);
+    filter: blur(5px);
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0,0,0,0.7);
+}
+
+/* 7. Comparison Slider */
+.comparison-slider-container {
+    width: 100%;
+    max-width: 400px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.comparison-side {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+.comparison-real {
+    left: 0;
+    background-color: rgba(40, 167, 69, 0.3);
+    border-right: 2px solid #fff;
+    color: #28a745;
+    z-index: 2;
+}
+
+.comparison-ai {
+    right: 0;
+    background-color: rgba(0, 123, 255, 0.3);
+    color: #007bff;
+    z-index: 1;
+}
+
+.comparison-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 30px;
+    margin-left: -15px;
+    z-index: 3;
+    cursor: ew-resize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comparison-handle-line {
+    height: 100%;
+    width: 2px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+.comparison-handle-grip {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* 8. Game Logo Animation */
+.game-logo-container {
+    width: 100%;
+    max-width: 300px;
+    height: 150px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-logo {
+    position: relative;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.logo-real {
+    color: #28a745;
+    text-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+}
+
+.logo-vs {
+    display: block;
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 5px 0;
+}
+
+.logo-ai {
+    color: #007bff;
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.logo-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 9. Loading Screen */
+.loading-screen-container {
+    width: 100%;
+    max-width: 400px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.loading-screen-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.loading-screen-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.loading-screen-subtitle {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.loading-screen-progress {
+    height: 8px;
+    background-color: #333;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.loading-screen-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, #5D4FFF, #63D8FF);
+    transition: width 0.3s ease;
+}
+
+.loading-screen-message {
+    text-align: center;
+    font-size: 0.9rem;
+    min-height: 40px;
+}
+
+.loading-screen-spinner {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #5D4FFF;
+}
+
+/* 10. Fullscreen Simulation */
+.fullscreen-simulation {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.simulation-content {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.simulation-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.simulation-spinner {
+    font-size: 3rem;
+    color: #5D4FFF;
+    margin-bottom: 20px;
+    animation: spin 2s infinite linear;
+}
+
+.simulation-text {
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 80%;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+@keyframes wave {
+    0%, 100% {
+        height: 10px;
+    }
+    50% {
+        height: 50px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .battle-container {
+        padding: 0 15px;
+    }
+    
+    .battle-side {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .game-logo {
+        font-size: 2rem;
+    }
+    
+    .game-logo .logo-vs {
+        font-size: 1.2rem;
+    }
+}

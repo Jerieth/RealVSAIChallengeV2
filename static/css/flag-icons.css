@@ -1,0 +1,1023 @@
+/**
+ * Flag Icons CSS
+ * Simplified version of flag-icon-css library for Real vs AI game
+ */
+
+.flag-icon {
+  display: inline-block;
+  position: relative;
+  width: 1em;
+  line-height: 1em;
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  border-radius: 2px;
+}
+
+.flag-icon:before {
+  content: "\00a0";
+}
+
+.flag-icon-sm {
+  width: 1em;
+  height: 1em;
+}
+
+.flag-icon-md {
+  width: 1.33em;
+  height: 1.33em;
+}
+
+.flag-icon-lg {
+  width: 2em;
+  height: 2em;
+}
+
+/* Country Flag URLs */
+.flag-icon-af {
+  background-image: url(/static/images/flags/af.svg);
+}
+
+.flag-icon-al {
+  background-image: url(/static/images/flags/al.svg);
+}
+
+.flag-icon-dz {
+  background-image: url(/static/images/flags/dz.svg);
+}
+
+.flag-icon-as {
+  background-image: url(/static/images/flags/as.svg);
+}
+
+.flag-icon-ad {
+  background-image: url(/static/images/flags/ad.svg);
+}
+
+.flag-icon-ao {
+  background-image: url(/static/images/flags/ao.svg);
+}
+
+.flag-icon-ai {
+  background-image: url(/static/images/flags/ai.svg);
+}
+
+.flag-icon-aq {
+  background-image: url(/static/images/flags/aq.svg);
+}
+
+.flag-icon-ag {
+  background-image: url(/static/images/flags/ag.svg);
+}
+
+.flag-icon-ar {
+  background-image: url(/static/images/flags/ar.svg);
+}
+
+.flag-icon-am {
+  background-image: url(/static/images/flags/am.svg);
+}
+
+.flag-icon-aw {
+  background-image: url(/static/images/flags/aw.svg);
+}
+
+.flag-icon-au {
+  background-image: url(/static/images/flags/au.svg);
+}
+
+.flag-icon-at {
+  background-image: url(/static/images/flags/at.svg);
+}
+
+.flag-icon-az {
+  background-image: url(/static/images/flags/az.svg);
+}
+
+.flag-icon-bs {
+  background-image: url(/static/images/flags/bs.svg);
+}
+
+.flag-icon-bh {
+  background-image: url(/static/images/flags/bh.svg);
+}
+
+.flag-icon-bd {
+  background-image: url(/static/images/flags/bd.svg);
+}
+
+.flag-icon-bb {
+  background-image: url(/static/images/flags/bb.svg);
+}
+
+.flag-icon-by {
+  background-image: url(/static/images/flags/by.svg);
+}
+
+.flag-icon-be {
+  background-image: url(/static/images/flags/be.svg);
+}
+
+.flag-icon-bz {
+  background-image: url(/static/images/flags/bz.svg);
+}
+
+.flag-icon-bj {
+  background-image: url(/static/images/flags/bj.svg);
+}
+
+.flag-icon-bm {
+  background-image: url(/static/images/flags/bm.svg);
+}
+
+.flag-icon-bt {
+  background-image: url(/static/images/flags/bt.svg);
+}
+
+.flag-icon-bo {
+  background-image: url(/static/images/flags/bo.svg);
+}
+
+.flag-icon-bq {
+  background-image: url(/static/images/flags/bq.svg);
+}
+
+.flag-icon-ba {
+  background-image: url(/static/images/flags/ba.svg);
+}
+
+.flag-icon-bw {
+  background-image: url(/static/images/flags/bw.svg);
+}
+
+.flag-icon-bv {
+  background-image: url(/static/images/flags/bv.svg);
+}
+
+.flag-icon-br {
+  background-image: url(/static/images/flags/br.svg);
+}
+
+.flag-icon-io {
+  background-image: url(/static/images/flags/io.svg);
+}
+
+.flag-icon-bn {
+  background-image: url(/static/images/flags/bn.svg);
+}
+
+.flag-icon-bg {
+  background-image: url(/static/images/flags/bg.svg);
+}
+
+.flag-icon-bf {
+  background-image: url(/static/images/flags/bf.svg);
+}
+
+.flag-icon-bi {
+  background-image: url(/static/images/flags/bi.svg);
+}
+
+.flag-icon-cv {
+  background-image: url(/static/images/flags/cv.svg);
+}
+
+.flag-icon-kh {
+  background-image: url(/static/images/flags/kh.svg);
+}
+
+.flag-icon-cm {
+  background-image: url(/static/images/flags/cm.svg);
+}
+
+.flag-icon-ca {
+  background-image: url(/static/images/flags/ca.svg);
+}
+
+.flag-icon-ky {
+  background-image: url(/static/images/flags/ky.svg);
+}
+
+.flag-icon-cf {
+  background-image: url(/static/images/flags/cf.svg);
+}
+
+.flag-icon-td {
+  background-image: url(/static/images/flags/td.svg);
+}
+
+.flag-icon-cl {
+  background-image: url(/static/images/flags/cl.svg);
+}
+
+.flag-icon-cn {
+  background-image: url(/static/images/flags/cn.svg);
+}
+
+.flag-icon-cx {
+  background-image: url(/static/images/flags/cx.svg);
+}
+
+.flag-icon-cc {
+  background-image: url(/static/images/flags/cc.svg);
+}
+
+.flag-icon-co {
+  background-image: url(/static/images/flags/co.svg);
+}
+
+.flag-icon-km {
+  background-image: url(/static/images/flags/km.svg);
+}
+
+.flag-icon-cg {
+  background-image: url(/static/images/flags/cg.svg);
+}
+
+.flag-icon-cd {
+  background-image: url(/static/images/flags/cd.svg);
+}
+
+.flag-icon-ck {
+  background-image: url(/static/images/flags/ck.svg);
+}
+
+.flag-icon-cr {
+  background-image: url(/static/images/flags/cr.svg);
+}
+
+.flag-icon-hr {
+  background-image: url(/static/images/flags/hr.svg);
+}
+
+.flag-icon-cu {
+  background-image: url(/static/images/flags/cu.svg);
+}
+
+.flag-icon-cw {
+  background-image: url(/static/images/flags/cw.svg);
+}
+
+.flag-icon-cy {
+  background-image: url(/static/images/flags/cy.svg);
+}
+
+.flag-icon-cz {
+  background-image: url(/static/images/flags/cz.svg);
+}
+
+.flag-icon-ci {
+  background-image: url(/static/images/flags/ci.svg);
+}
+
+.flag-icon-dk {
+  background-image: url(/static/images/flags/dk.svg);
+}
+
+.flag-icon-dj {
+  background-image: url(/static/images/flags/dj.svg);
+}
+
+.flag-icon-dm {
+  background-image: url(/static/images/flags/dm.svg);
+}
+
+.flag-icon-do {
+  background-image: url(/static/images/flags/do.svg);
+}
+
+.flag-icon-ec {
+  background-image: url(/static/images/flags/ec.svg);
+}
+
+.flag-icon-eg {
+  background-image: url(/static/images/flags/eg.svg);
+}
+
+.flag-icon-sv {
+  background-image: url(/static/images/flags/sv.svg);
+}
+
+.flag-icon-gq {
+  background-image: url(/static/images/flags/gq.svg);
+}
+
+.flag-icon-er {
+  background-image: url(/static/images/flags/er.svg);
+}
+
+.flag-icon-ee {
+  background-image: url(/static/images/flags/ee.svg);
+}
+
+.flag-icon-sz {
+  background-image: url(/static/images/flags/sz.svg);
+}
+
+.flag-icon-et {
+  background-image: url(/static/images/flags/et.svg);
+}
+
+.flag-icon-fk {
+  background-image: url(/static/images/flags/fk.svg);
+}
+
+.flag-icon-fo {
+  background-image: url(/static/images/flags/fo.svg);
+}
+
+.flag-icon-fj {
+  background-image: url(/static/images/flags/fj.svg);
+}
+
+.flag-icon-fi {
+  background-image: url(/static/images/flags/fi.svg);
+}
+
+.flag-icon-fr {
+  background-image: url(/static/images/flags/fr.svg);
+}
+
+.flag-icon-gf {
+  background-image: url(/static/images/flags/gf.svg);
+}
+
+.flag-icon-pf {
+  background-image: url(/static/images/flags/pf.svg);
+}
+
+.flag-icon-tf {
+  background-image: url(/static/images/flags/tf.svg);
+}
+
+.flag-icon-ga {
+  background-image: url(/static/images/flags/ga.svg);
+}
+
+.flag-icon-gm {
+  background-image: url(/static/images/flags/gm.svg);
+}
+
+.flag-icon-ge {
+  background-image: url(/static/images/flags/ge.svg);
+}
+
+.flag-icon-de {
+  background-image: url(/static/images/flags/de.svg);
+}
+
+.flag-icon-gh {
+  background-image: url(/static/images/flags/gh.svg);
+}
+
+.flag-icon-gi {
+  background-image: url(/static/images/flags/gi.svg);
+}
+
+.flag-icon-gr {
+  background-image: url(/static/images/flags/gr.svg);
+}
+
+.flag-icon-gl {
+  background-image: url(/static/images/flags/gl.svg);
+}
+
+.flag-icon-gd {
+  background-image: url(/static/images/flags/gd.svg);
+}
+
+.flag-icon-gp {
+  background-image: url(/static/images/flags/gp.svg);
+}
+
+.flag-icon-gu {
+  background-image: url(/static/images/flags/gu.svg);
+}
+
+.flag-icon-gt {
+  background-image: url(/static/images/flags/gt.svg);
+}
+
+.flag-icon-gg {
+  background-image: url(/static/images/flags/gg.svg);
+}
+
+.flag-icon-gn {
+  background-image: url(/static/images/flags/gn.svg);
+}
+
+.flag-icon-gw {
+  background-image: url(/static/images/flags/gw.svg);
+}
+
+.flag-icon-gy {
+  background-image: url(/static/images/flags/gy.svg);
+}
+
+.flag-icon-ht {
+  background-image: url(/static/images/flags/ht.svg);
+}
+
+.flag-icon-hm {
+  background-image: url(/static/images/flags/hm.svg);
+}
+
+.flag-icon-va {
+  background-image: url(/static/images/flags/va.svg);
+}
+
+.flag-icon-hn {
+  background-image: url(/static/images/flags/hn.svg);
+}
+
+.flag-icon-hk {
+  background-image: url(/static/images/flags/hk.svg);
+}
+
+.flag-icon-hu {
+  background-image: url(/static/images/flags/hu.svg);
+}
+
+.flag-icon-is {
+  background-image: url(/static/images/flags/is.svg);
+}
+
+.flag-icon-in {
+  background-image: url(/static/images/flags/in.svg);
+}
+
+.flag-icon-id {
+  background-image: url(/static/images/flags/id.svg);
+}
+
+.flag-icon-ir {
+  background-image: url(/static/images/flags/ir.svg);
+}
+
+.flag-icon-iq {
+  background-image: url(/static/images/flags/iq.svg);
+}
+
+.flag-icon-ie {
+  background-image: url(/static/images/flags/ie.svg);
+}
+
+.flag-icon-im {
+  background-image: url(/static/images/flags/im.svg);
+}
+
+.flag-icon-il {
+  background-image: url(/static/images/flags/il.svg);
+}
+
+.flag-icon-it {
+  background-image: url(/static/images/flags/it.svg);
+}
+
+.flag-icon-jm {
+  background-image: url(/static/images/flags/jm.svg);
+}
+
+.flag-icon-jp {
+  background-image: url(/static/images/flags/jp.svg);
+}
+
+.flag-icon-je {
+  background-image: url(/static/images/flags/je.svg);
+}
+
+.flag-icon-jo {
+  background-image: url(/static/images/flags/jo.svg);
+}
+
+.flag-icon-kz {
+  background-image: url(/static/images/flags/kz.svg);
+}
+
+.flag-icon-ke {
+  background-image: url(/static/images/flags/ke.svg);
+}
+
+.flag-icon-ki {
+  background-image: url(/static/images/flags/ki.svg);
+}
+
+.flag-icon-kp {
+  background-image: url(/static/images/flags/kp.svg);
+}
+
+.flag-icon-kr {
+  background-image: url(/static/images/flags/kr.svg);
+}
+
+.flag-icon-kw {
+  background-image: url(/static/images/flags/kw.svg);
+}
+
+.flag-icon-kg {
+  background-image: url(/static/images/flags/kg.svg);
+}
+
+.flag-icon-la {
+  background-image: url(/static/images/flags/la.svg);
+}
+
+.flag-icon-lv {
+  background-image: url(/static/images/flags/lv.svg);
+}
+
+.flag-icon-lb {
+  background-image: url(/static/images/flags/lb.svg);
+}
+
+.flag-icon-ls {
+  background-image: url(/static/images/flags/ls.svg);
+}
+
+.flag-icon-lr {
+  background-image: url(/static/images/flags/lr.svg);
+}
+
+.flag-icon-ly {
+  background-image: url(/static/images/flags/ly.svg);
+}
+
+.flag-icon-li {
+  background-image: url(/static/images/flags/li.svg);
+}
+
+.flag-icon-lt {
+  background-image: url(/static/images/flags/lt.svg);
+}
+
+.flag-icon-lu {
+  background-image: url(/static/images/flags/lu.svg);
+}
+
+.flag-icon-mo {
+  background-image: url(/static/images/flags/mo.svg);
+}
+
+.flag-icon-mk {
+  background-image: url(/static/images/flags/mk.svg);
+}
+
+.flag-icon-mg {
+  background-image: url(/static/images/flags/mg.svg);
+}
+
+.flag-icon-mw {
+  background-image: url(/static/images/flags/mw.svg);
+}
+
+.flag-icon-my {
+  background-image: url(/static/images/flags/my.svg);
+}
+
+.flag-icon-mv {
+  background-image: url(/static/images/flags/mv.svg);
+}
+
+.flag-icon-ml {
+  background-image: url(/static/images/flags/ml.svg);
+}
+
+.flag-icon-mt {
+  background-image: url(/static/images/flags/mt.svg);
+}
+
+.flag-icon-mh {
+  background-image: url(/static/images/flags/mh.svg);
+}
+
+.flag-icon-mq {
+  background-image: url(/static/images/flags/mq.svg);
+}
+
+.flag-icon-mr {
+  background-image: url(/static/images/flags/mr.svg);
+}
+
+.flag-icon-mu {
+  background-image: url(/static/images/flags/mu.svg);
+}
+
+.flag-icon-yt {
+  background-image: url(/static/images/flags/yt.svg);
+}
+
+.flag-icon-mx {
+  background-image: url(/static/images/flags/mx.svg);
+}
+
+.flag-icon-fm {
+  background-image: url(/static/images/flags/fm.svg);
+}
+
+.flag-icon-md {
+  background-image: url(/static/images/flags/md.svg);
+}
+
+.flag-icon-mc {
+  background-image: url(/static/images/flags/mc.svg);
+}
+
+.flag-icon-mn {
+  background-image: url(/static/images/flags/mn.svg);
+}
+
+.flag-icon-me {
+  background-image: url(/static/images/flags/me.svg);
+}
+
+.flag-icon-ms {
+  background-image: url(/static/images/flags/ms.svg);
+}
+
+.flag-icon-ma {
+  background-image: url(/static/images/flags/ma.svg);
+}
+
+.flag-icon-mz {
+  background-image: url(/static/images/flags/mz.svg);
+}
+
+.flag-icon-mm {
+  background-image: url(/static/images/flags/mm.svg);
+}
+
+.flag-icon-na {
+  background-image: url(/static/images/flags/na.svg);
+}
+
+.flag-icon-nr {
+  background-image: url(/static/images/flags/nr.svg);
+}
+
+.flag-icon-np {
+  background-image: url(/static/images/flags/np.svg);
+}
+
+.flag-icon-nl {
+  background-image: url(/static/images/flags/nl.svg);
+}
+
+.flag-icon-nc {
+  background-image: url(/static/images/flags/nc.svg);
+}
+
+.flag-icon-nz {
+  background-image: url(/static/images/flags/nz.svg);
+}
+
+.flag-icon-ni {
+  background-image: url(/static/images/flags/ni.svg);
+}
+
+.flag-icon-ne {
+  background-image: url(/static/images/flags/ne.svg);
+}
+
+.flag-icon-ng {
+  background-image: url(/static/images/flags/ng.svg);
+}
+
+.flag-icon-nu {
+  background-image: url(/static/images/flags/nu.svg);
+}
+
+.flag-icon-nf {
+  background-image: url(/static/images/flags/nf.svg);
+}
+
+.flag-icon-mp {
+  background-image: url(/static/images/flags/mp.svg);
+}
+
+.flag-icon-no {
+  background-image: url(/static/images/flags/no.svg);
+}
+
+.flag-icon-om {
+  background-image: url(/static/images/flags/om.svg);
+}
+
+.flag-icon-pk {
+  background-image: url(/static/images/flags/pk.svg);
+}
+
+.flag-icon-pw {
+  background-image: url(/static/images/flags/pw.svg);
+}
+
+.flag-icon-ps {
+  background-image: url(/static/images/flags/ps.svg);
+}
+
+.flag-icon-pa {
+  background-image: url(/static/images/flags/pa.svg);
+}
+
+.flag-icon-pg {
+  background-image: url(/static/images/flags/pg.svg);
+}
+
+.flag-icon-py {
+  background-image: url(/static/images/flags/py.svg);
+}
+
+.flag-icon-pe {
+  background-image: url(/static/images/flags/pe.svg);
+}
+
+.flag-icon-ph {
+  background-image: url(/static/images/flags/ph.svg);
+}
+
+.flag-icon-pn {
+  background-image: url(/static/images/flags/pn.svg);
+}
+
+.flag-icon-pl {
+  background-image: url(/static/images/flags/pl.svg);
+}
+
+.flag-icon-pt {
+  background-image: url(/static/images/flags/pt.svg);
+}
+
+.flag-icon-pr {
+  background-image: url(/static/images/flags/pr.svg);
+}
+
+.flag-icon-qa {
+  background-image: url(/static/images/flags/qa.svg);
+}
+
+.flag-icon-ro {
+  background-image: url(/static/images/flags/ro.svg);
+}
+
+.flag-icon-ru {
+  background-image: url(/static/images/flags/ru.svg);
+}
+
+.flag-icon-rw {
+  background-image: url(/static/images/flags/rw.svg);
+}
+
+.flag-icon-re {
+  background-image: url(/static/images/flags/re.svg);
+}
+
+.flag-icon-bl {
+  background-image: url(/static/images/flags/bl.svg);
+}
+
+.flag-icon-sh {
+  background-image: url(/static/images/flags/sh.svg);
+}
+
+.flag-icon-kn {
+  background-image: url(/static/images/flags/kn.svg);
+}
+
+.flag-icon-lc {
+  background-image: url(/static/images/flags/lc.svg);
+}
+
+.flag-icon-mf {
+  background-image: url(/static/images/flags/mf.svg);
+}
+
+.flag-icon-pm {
+  background-image: url(/static/images/flags/pm.svg);
+}
+
+.flag-icon-vc {
+  background-image: url(/static/images/flags/vc.svg);
+}
+
+.flag-icon-ws {
+  background-image: url(/static/images/flags/ws.svg);
+}
+
+.flag-icon-sm {
+  background-image: url(/static/images/flags/sm.svg);
+}
+
+.flag-icon-st {
+  background-image: url(/static/images/flags/st.svg);
+}
+
+.flag-icon-sa {
+  background-image: url(/static/images/flags/sa.svg);
+}
+
+.flag-icon-sn {
+  background-image: url(/static/images/flags/sn.svg);
+}
+
+.flag-icon-rs {
+  background-image: url(/static/images/flags/rs.svg);
+}
+
+.flag-icon-sc {
+  background-image: url(/static/images/flags/sc.svg);
+}
+
+.flag-icon-sl {
+  background-image: url(/static/images/flags/sl.svg);
+}
+
+.flag-icon-sg {
+  background-image: url(/static/images/flags/sg.svg);
+}
+
+.flag-icon-sx {
+  background-image: url(/static/images/flags/sx.svg);
+}
+
+.flag-icon-sk {
+  background-image: url(/static/images/flags/sk.svg);
+}
+
+.flag-icon-si {
+  background-image: url(/static/images/flags/si.svg);
+}
+
+.flag-icon-sb {
+  background-image: url(/static/images/flags/sb.svg);
+}
+
+.flag-icon-so {
+  background-image: url(/static/images/flags/so.svg);
+}
+
+.flag-icon-za {
+  background-image: url(/static/images/flags/za.svg);
+}
+
+.flag-icon-gs {
+  background-image: url(/static/images/flags/gs.svg);
+}
+
+.flag-icon-ss {
+  background-image: url(/static/images/flags/ss.svg);
+}
+
+.flag-icon-es {
+  background-image: url(/static/images/flags/es.svg);
+}
+
+.flag-icon-lk {
+  background-image: url(/static/images/flags/lk.svg);
+}
+
+.flag-icon-sd {
+  background-image: url(/static/images/flags/sd.svg);
+}
+
+.flag-icon-sr {
+  background-image: url(/static/images/flags/sr.svg);
+}
+
+.flag-icon-sj {
+  background-image: url(/static/images/flags/sj.svg);
+}
+
+.flag-icon-se {
+  background-image: url(/static/images/flags/se.svg);
+}
+
+.flag-icon-ch {
+  background-image: url(/static/images/flags/ch.svg);
+}
+
+.flag-icon-sy {
+  background-image: url(/static/images/flags/sy.svg);
+}
+
+.flag-icon-tw {
+  background-image: url(/static/images/flags/tw.svg);
+}
+
+.flag-icon-tj {
+  background-image: url(/static/images/flags/tj.svg);
+}
+
+.flag-icon-tz {
+  background-image: url(/static/images/flags/tz.svg);
+}
+
+.flag-icon-th {
+  background-image: url(/static/images/flags/th.svg);
+}
+
+.flag-icon-tl {
+  background-image: url(/static/images/flags/tl.svg);
+}
+
+.flag-icon-tg {
+  background-image: url(/static/images/flags/tg.svg);
+}
+
+.flag-icon-tk {
+  background-image: url(/static/images/flags/tk.svg);
+}
+
+.flag-icon-to {
+  background-image: url(/static/images/flags/to.svg);
+}
+
+.flag-icon-tt {
+  background-image: url(/static/images/flags/tt.svg);
+}
+
+.flag-icon-tn {
+  background-image: url(/static/images/flags/tn.svg);
+}
+
+.flag-icon-tr {
+  background-image: url(/static/images/flags/tr.svg);
+}
+
+.flag-icon-tm {
+  background-image: url(/static/images/flags/tm.svg);
+}
+
+.flag-icon-tc {
+  background-image: url(/static/images/flags/tc.svg);
+}
+
+.flag-icon-tv {
+  background-image: url(/static/images/flags/tv.svg);
+}
+
+.flag-icon-ug {
+  background-image: url(/static/images/flags/ug.svg);
+}
+
+.flag-icon-ua {
+  background-image: url(/static/images/flags/ua.svg);
+}
+
+.flag-icon-ae {
+  background-image: url(/static/images/flags/ae.svg);
+}
+
+.flag-icon-gb {
+  background-image: url(/static/images/flags/gb.svg);
+}
+
+.flag-icon-us {
+  background-image: url(/static/images/flags/us.svg);
+}
+
+.flag-icon-uy {
+  background-image: url(/static/images/flags/uy.svg);
+}
+
+.flag-icon-uz {
+  background-image: url(/static/images/flags/uz.svg);
+}
+
+.flag-icon-vu {
+  background-image: url(/static/images/flags/vu.svg);
+}
+
+.flag-icon-ve {
+  background-image: url(/static/images/flags/ve.svg);
+}
+
+.flag-icon-vn {
+  background-image: url(/static/images/flags/vn.svg);
+}
+
+.flag-icon-vg {
+  background-image: url(/static/images/flags/vg.svg);
+}
+
+.flag-icon-vi {
+  background-image: url(/static/images/flags/vi.svg);
+}
+
+.flag-icon-wf {
+  background-image: url(/static/images/flags/wf.svg);
+}
+
+.flag-icon-eh {
+  background-image: url(/static/images/flags/eh.svg);
+}
+
+.flag-icon-ye {
+  background-image: url(/static/images/flags/ye.svg);
+}
+
+.flag-icon-zm {
+  background-image: url(/static/images/flags/zm.svg);
+}
+
+.flag-icon-zw {
+  background-image: url(/static/images/flags/zw.svg);
+}
