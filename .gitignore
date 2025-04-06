@@ -1,43 +1,44 @@
-# Logs
-logs/
-*.log
-php_server.log
-
-# Sensitive/environment data
+# Environment
 .env
 .env.local
-.env.development
-.env.test
-.env.production
+.env.*.local
 
-# User-specific files
-.DS_Store
-Thumbs.db
-.user.ini
+# Log files
+*.log
+logs/
+log/
+php_error.log
+
+# Cache and temporary files
+*.cache
+.tmp/
+tmp/
+temp/
+storage/temp/*
+!storage/temp/.gitkeep
+
+# User uploads
+data/uploads/*
+!data/uploads/.gitkeep
+storage/uploads/*
+!storage/uploads/.gitkeep
+data/images/*
+!data/images/.gitkeep
+storage/images/*
+!storage/images/.gitkeep
 
 # Database files
 *.db
 *.sqlite
 *.sqlite3
 
-# Temporary files
-tmp/
-temp/
-*.tmp
-
-# Session and cache data
-sessions/
-cache/
-
-# Composer
-vendor/
-composer.lock
-
-# IDE files
+# IDE and editor files
 .idea/
 .vscode/
-*.sublime-project
-*.sublime-workspace
+*.swp
+*.swo
+*.swn
+*~
 
 # OS generated files
 .DS_Store
@@ -47,7 +48,3 @@ composer.lock
 .Trashes
 ehthumbs.db
 Thumbs.db
-
-# Replit specific
-.replit_custom_server
-.ip_tracking_initialized
