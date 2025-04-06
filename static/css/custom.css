@@ -1,0 +1,1379 @@
+/* Custom CSS for Real vs AI game */
+
+/* Basic HTML and body setup */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Toast notification for copy to clipboard */
+.copy-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    z-index: 9999;
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.copy-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.text-outline-black {
+    /* Standard property (less supported historically, but good practice) */
+    text-stroke: 1px black; 
+    /* Vendor prefix for broader compatibility, especially older WebKit browsers */
+    -webkit-text-stroke: 1px black; 
+    /* Make sure text color contrasts well with the background AND stroke */
+    /* color: white; /* Bootstrap's .badge usually handles this, but you can force it */
+}
+
+/* Dark theme variables */
+:root {
+    --bs-primary: #0d6efd;
+    --bs-secondary: #2d2d2d;
+    --bs-success: #198754;
+    --bs-danger: #dc3545;
+    --bs-warning: #ffc107;
+    --bs-info: #0dcaf0;
+    --bs-dark: #0d1117;
+    --bs-light: #f8f9fa;
+    --bs-body-bg: #0d1117;
+    --bs-body-color: #f8f9fa;
+}
+
+body {
+    background: linear-gradient(135deg, #0d1117 0%, #131b2a 100%);
+    color: var(--bs-body-color);
+    font-family: 'Inter', 'Roboto', sans-serif;
+    padding-top: 50px; /* Reduced padding for better integration */
+    padding-bottom: 60px; /* Add padding at bottom for fixed footer */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 0.2px;
+    font-weight: 400;
+    line-height: 1.6;
+    zoom: 0.80; /* Zoom out to 80% to match Python version */
+}
+
+.navbar {
+    background-color: #0d1117; /* Solid dark background color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle box shadow */
+    border-bottom: 1px solid rgba(116, 103, 253, 0.2); /* Subtle border */
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.6rem !important; /* Increased to match navbar links */
+    letter-spacing: 0.5px;
+}
+
+.navbar .nav-link {
+    font-weight: 400;
+    font-size: 18px !important; /* Size requested by user */
+    padding: 0.5rem 1rem;
+    color: #50b2ea !important; /* Picton Blue for all navbar links */
+    transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #7dd3fc !important; /* Lighter Picton Blue on hover */
+}
+
+/* No need for special auth-link styling since all links are now the same color */
+
+.hero-section {
+    padding: 40px 0;
+    text-align: center;
+    background-color: transparent;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(116, 103, 253, 0.2), rgba(116, 103, 253, 0.8), rgba(116, 103, 253, 0.2));
+    border-radius: 2px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #7467fd, #a29bfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.game-modes {
+    padding: 20px 0;
+}
+
+.game-mode-card {
+    background-color: #1e2940;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+    height: 100%;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.2s ease;
+}
+
+.game-mode-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.game-mode-title {
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--bs-light);
+    font-size: 1.3rem;
+    letter-spacing: 0.3px;
+}
+
+.game-mode-description {
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.3px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(116, 103, 253, 0.2), rgba(116, 103, 253, 0.8), rgba(116, 103, 253, 0.2));
+    border-radius: 2px;
+}
+
+.footer {
+    background-color: #1d2939; /* Solid dark background color */
+    padding: 10px 0;
+    margin-top: auto;
+    border-top: 1px solid rgba(116, 103, 253, 0.2); /* Subtle border for definition */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Ensure text doesn't overflow on small screens */
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.footer-link {
+    color: #7364fa !important; /* Cornflower Blue for footer links */
+}
+
+.footer a:hover {
+    color: #e2e8f0;
+    text-decoration: underline;
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+.footer-links {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Button styles */
+.btn {
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    border-radius: 6px;
+    padding: 0.5rem 1.25rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background-color: #2d315a; /* Rhino background */
+    border-color: #7467fd; /* Cornflower Blue border */
+    border-width: 2px;
+}
+
+.btn-primary:hover {
+    background-color: #2d315a; /* Stays the same on hover */
+    border-color: #7467fd; /* Stays the same on hover */
+    box-shadow: 0 0 0 0.25rem rgba(116, 103, 253, 0.3); /* Subtle glow effect */
+}
+
+.btn-success {
+    background-color: #0f5132;
+    border-color: #75cc8e;
+    border-width: 2px;
+}
+
+.btn-success:hover {
+    background-color: #0f5132;
+    border-color: #75cc8e;
+    box-shadow: 0 0 0 0.25rem rgba(117, 204, 142, 0.3);
+}
+
+.btn-danger {
+    background-color: #8b0000;
+    border-color: #ff6666;
+    border-width: 2px;
+}
+
+.btn-danger:hover {
+    background-color: #8b0000;
+    border-color: #ff6666;
+    box-shadow: 0 0 0 0.25rem rgba(255, 102, 102, 0.3); /* Added red glow effect */
+}
+
+.btn-info {
+    background-color: #1a365d;
+    border-color: #63b3ed;
+    color: #ffffff;
+    border-width: 2px;
+}
+
+.btn-info:hover {
+    background-color: #1a365d;
+    border-color: #63b3ed;
+    color: #ffffff;
+    box-shadow: 0 0 0 0.25rem rgba(99, 179, 237, 0.3); /* Added blue glow effect */
+}
+
+/* Gold button style for special achievements and premium features */
+.btn-gold {
+    background-color: #ffd700; /* Gold color */
+    border-color: #ffd700; /* Matching border color */
+    color: #000000; /* Black text for contrast */
+    border-width: 2px;
+    font-weight: 600;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.btn-gold:hover {
+    background-color: #ffc107; /* Slightly darker gold for hover */
+    border-color: #ffca2c; /* Slightly darker border on hover */
+    color: #000000;
+    box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.4); /* Gold glow effect */
+}
+
+/* How to play icon styles */
+.how-to-play-icon {
+    color: #60a5fa;
+    font-size: 2rem; /* Smaller to match Python version */
+    margin-bottom: 0.8rem;
+}
+
+.purple-icon {
+    color: #7264fe; /* Cornflower Blue for icons */
+}
+
+.how-to-play-title {
+    font-weight: 500;
+    font-size: 1.3rem; /* Smaller to match Python version */
+    margin-bottom: 1rem;
+    letter-spacing: 0.3px;
+}
+
+.how-to-play-card {
+    background-color: transparent;
+    padding: 20px 15px;
+    height: 100%;
+    margin-bottom: 10px;
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+    border-radius: 10px;
+}
+
+.how-to-play-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    background-color: rgba(30, 41, 64, 0.3);
+}
+
+/* Card styles */
+.card {
+    background-color: #27334d;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-weight: 500;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Game page styles */
+.game-header {
+    background-color: #1e2940; /* Solid dark background color */
+    padding: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Add subtle shadow */
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(116, 103, 253, 0.2); /* Add subtle border */
+}
+
+/* Time bonus indicator */
+.time-bonus-indicator {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.time-bonus-indicator .progress {
+    height: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.time-bonus-indicator .progress-bar {
+    transition: width 0.1s linear;
+}
+
+.turn-counter, .score-counter, .lives-counter {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.image-container {
+    cursor: pointer;
+    position: relative;
+    border-radius: 8px;
+    overflow: visible; /* Allow magnifier to extend outside */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid transparent;
+    background-color: #111827;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 380px; /* Standardized height */
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 320px; /* Standardized height for images */
+    object-fit: contain; /* Maintain aspect ratio */
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+    transition: opacity 0.3s ease;
+}
+
+.image-container.loading::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 1;
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.image-container.loading img {
+    opacity: 0.5;
+}
+
+
+/* Add a loading style for images */
+.image-container img.loading {
+    opacity: 0.5;
+}
+
+/* Define a pulsing animation for loading images */
+@keyframes image-loading-pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 0.9; }
+    100% { opacity: 0.6; }
+}
+
+.image-container.loading::after {
+    content: "Loading image...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--bs-light);
+    background: rgba(0,0,0,0.7);
+    padding: 10px 15px;
+    border-radius: 5px;
+    animation: image-loading-pulse 1.5s infinite;
+    z-index: 5;
+}
+
+.image-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.image-container.selected {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 20px rgba(13, 110, 253, 0.5);
+}
+
+/* Common button styles for image actions */
+.view-in-new-tab-btn,
+.btn-secondary {
+    margin-top: 10px;
+    color: var(--bs-info);
+    background-color: transparent;
+    border: 1px solid var(--bs-info);
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 130px;
+}
+
+.view-in-new-tab-btn:hover,
+.btn-secondary:hover {
+    background-color: var(--bs-info);
+    color: var(--bs-dark);
+}
+
+/* Zoom controls */
+.zoom-controls {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+}
+
+.zoom-icon, .magnifier-icon, .fullsize-view-btn {
+    background-color: none;
+    color: #0f1926;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.zoom-icon:hover, .magnifier-icon:hover, .fullsize-view-btn:hover {
+    background-color: var(--bs-primary);
+    transform: scale(1.1);
+}
+
+.zoom-icon i, .magnifier-icon i, .fullsize-view-btn i {
+    font-size: 16px;
+}
+
+.fullsize-view-btn {
+    background-color: rgba(13, 110, 253, 0.8); /* slightly blue tint to match the compareViewButton */
+}
+
+/* Medium-zoom styles */
+.medium-zoom-overlay {
+    z-index: 1000;
+}
+
+.medium-zoom-image {
+    z-index: 1001;
+}
+
+/* Custom zoom template with close button */
+.zoom-template {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.zoom-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zoom-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 20px;
+    z-index: 1002;
+}
+
+.zoom-close-btn:hover {
+    background-color: rgba(220, 53, 69, 0.8);
+    transform: scale(1.1);
+}
+
+/* Image magnifier glass */
+.img-magnifier-container {
+  position: relative;
+  display: inline-block;
+}
+
+.magnifier-glass {
+  position: absolute;
+  border: 3px solid #0d6efd;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 150px;
+  height: 150px;
+  display: none;
+  z-index: 100;
+  background-color: white;
+  opacity: 0.9;
+  pointer-events: none; /* Ensures it doesn't interfere with mouse events */
+  transition: border-color 0.3s ease;
+}
+
+.zoom-controls {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.magnifier-icon {
+  cursor: pointer;
+  color: #000;
+  background: none;
+}
+
+.magnifier-icon.active {
+  color: #000;
+  background: none;
+}
+
+.magnifier-icon:hover {
+  color: #000;
+  background: none;
+}
+
+/* Image container with active magnifier */
+.image-container.magnifier-active {
+    cursor: crosshair !important;
+}
+
+/* Define the custom background class */
+.bg-success2 {
+  /* Set the background color */
+  background-color: #228B22 !important; 
+
+  /* Set the text color for good contrast */
+  /* Dark backgrounds usually need light text */
+  color: #ffffff !important; 
+}
+
+/* Tooltip for magnifier instructions */
+.zoom-tooltip {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    max-width: 200px;
+    display: none;
+    z-index: 15;
+}
+
+
+.feedback-message {
+    padding: 15px;
+    border-radius: 5px;
+    margin: 15px 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.feedback-correct {
+    background-color: var(--bs-success);
+    color: white;
+}
+
+.feedback-wrong {
+    background-color: var(--bs-danger);
+    color: white;
+}
+
+/* Image description info box */
+.image-info-box {
+    background-color: #1e2940;
+    border: 1px solid rgba(116, 103, 253, 0.3);
+    border-radius: 6px;
+    padding: 12px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #f8f9fa;
+    min-height: 50px;
+    display: none; /* Hidden by default, shown after answer */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.image-info-box.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Image description in feedback message */
+.image-description {
+    display: block;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.session-info {
+    background-color: var(--bs-dark);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: monospace;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(13, 110, 253, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+    }
+}
+
+/* Auth forms */
+.auth-form {
+    background-color: var(--bs-secondary);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.auth-title {
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Leaderboard styles */
+.leaderboard-table th {
+    background-color: var(--bs-dark);
+}
+
+.leaderboard-table tbody tr {
+    background-color: var(--bs-secondary);
+}
+
+.leaderboard-table tbody tr:hover {
+    background-color: #3c3c3c;
+}
+
+/* Admin panel styles */
+.admin-section {
+    background-color: var(--bs-secondary);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.admin-title {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+/* Bulk image upload styles */
+.image-preview {
+    background-color: #2c2c2c;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-preview img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.upload-preview {
+    padding: 15px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.upload-preview h5 {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Game over and victory styles */
+.result-card {
+    background-color: var(--bs-secondary);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.result-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.score-display {
+    font-size: 4rem;
+    margin: 20px 0;
+    font-weight: 700;
+    color: var(--bs-primary);
+}
+
+/* Multiplayer specific styles */
+.border-dashed {
+    border-style: dashed !important;
+}
+
+/* Achievement badges styles */
+.achievement-badge {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.achievement-badge .card {
+    border: 2px solid transparent;
+    overflow: hidden;
+    background-color: #1e2940;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.achievement-badge .card.earned {
+    border-color: #ffd700;
+    background: linear-gradient(145deg, #1e2940 0%, #2a3850 100%);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    animation: achievement-glow 2s infinite;
+}
+
+.achievement-badge .card.not-earned {
+    border-color: #495057;
+    opacity: 0.8;
+    filter: grayscale(30%);
+}
+
+.achievement-badge .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.achievement-badge i {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+}
+
+.achievement-badge .card.earned i {
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.achievement-badge .card.not-earned i {
+    color: #6c757d;
+}
+
+.achievement-badge .card-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.achievement-badge.earned .card-title {
+    color: #ffd700;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.achievement-badge .card-text {
+    color: #cbd5e1;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.achievement-requirement {
+    font-style: italic;
+    margin-top: 5px;
+    font-size: 0.8rem;
+}
+
+.pulse-once {
+    animation: pulse-badge 2s 1;
+}
+
+@keyframes pulse-badge {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* New achievement celebration styles */
+.achievement-notification {
+    background-color: #7467fd !important;
+    color: white !important;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(116, 103, 253, 0.5);
+    animation: pulse-notification 2s infinite;
+    border-left: 5px solid #2d315a !important;
+}
+
+@keyframes pulse-notification {
+    0% {
+        box-shadow: 0 0 15px rgba(116, 103, 253, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(116, 103, 253, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(116, 103, 253, 0.5);
+    }
+}
+
+.achievement-badge .card.newly-earned {
+    animation: glow 2s infinite;
+    border-color: #ffc107;
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.6);
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 193, 7, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(255, 193, 7, 0.9);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(255, 193, 7, 0.6);
+    }
+}
+
+.achievement-badge .card.hover-effect {
+    transform: translateY(-10px) scale(1.05);
+    z-index: 10;
+}
+
+.pulse-animation {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes achievement-glow {
+    0% {
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 25px rgba(255, 215, 0, 0.6);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    }
+}
+
+/* Share section styles */
+.share-section a:hover {
+    transform: translateY(-3px);
+    transition: transform 0.2s ease;
+}
+
+/* Streak notification styling */
+.streak-notification {    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 18px;
+    text-align: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+    border: 2px solid #FFD700;
+}
+
+.streak-notification.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.streak-count {
+    font-size: 36px;
+    font-weight: bold;
+    color: #FFD700;
+    display: block;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+/* Bonus mini-game styles */
+.bonus-image-container {
+    cursor: pointer;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 3px solid transparent;
+    background-color: #111827;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px; /* Standardized height */
+}
+
+.bonus-image-container img {
+    max-width: 100%;
+    max-height: 250px; /* Standardized height for images */
+    object-fit: contain; /* Maintain aspect ratio */
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
+}
+
+.bonus-image-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.bonus-image-container.selected {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 20px rgba(13, 110, 253, 0.5);
+}
+
+/* Avatar selection styles */
+.avatar-selection {
+    margin-bottom: 20px;
+}
+
+.avatar-category {
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(116, 103, 253, 0.2);
+    padding-bottom: 5px;
+}
+
+.avatar-option {
+    width: 48px; height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: #1e2940;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0 auto;
+    border: 2px solid transparent;
+}
+
+/* New tab button size adjustment */
+.new-tab-btn {
+    transform: scale(0.25);
+}
+
+/* Image enlarge button size adjustment */
+.enlarge-btn {
+    transform: scale(0.5);
+}
+
+.avatar-option.selected {
+    border-color: #7467fd;
+    box-shadow: 0 0 10px rgba(116, 103, 253, 0.3);
+}
+
+.form-text {
+    color: #fff !important;
+}
+
+.country-display {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+}
+
+.country-flag {
+    font-size: 1.5rem;
+}
+
+.avatar-option:hover {
+    transform: scale(1.1);
+    background-color: #2d315a;
+}
+
+.avatar-option.selected {
+    border-color: #7467fd;
+    background-color: #2d315a;
+    box-shadow: 0 0 10px rgba(116, 103, 253, 0.4);
+}
+
+.selected-avatar-display {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+/* Multiplayer bonus game chest styles */
+.bonus-chest {
+    cursor: pointer;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background-color: #2d315a;
+    border-radius: 8px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 3px solid #7467fd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.bonus-chest:hover:not(.disabled) {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(116, 103, 253, 0.5);
+}
+
+.bonus-chest.selected {
+    border-color: #ffc107;
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.6);
+}
+
+.bonus-chest.disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.bonus-chest i {
+    font-size: 50px;
+    color: #ffc107;
+}
+
+.chest-value {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+.player-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.stats-row {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Optimized container width for better display */
+.container {
+    max-width: 1365px; /* Increased width by 5% as requested */
+}
+
+.main-content {
+    padding-bottom: 120px; /* Increased padding to accommodate fixed footer */
+    min-height: calc(100vh - 50px - 60px); /* Ensure content fills the screen minus header and footer */
+}
+
+/* Overall page zoom effect to match Python version */
+body {
+    zoom: 0.80; /* Zoom out to 80% to match Python version */
+}
+
+/* Modal button width adjustments */
+.modal-body .btn {
+    width: 80% !important;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Hero title and subtitle size adjustments */
+.hero-title {
+    font-size: 2.8rem; /* Reduced to match Python version */
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;  /* Reduced to match Python version */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .game-header {
+        padding: 10px 0;
+    }
+
+    .turn-counter, .score-counter, .lives-counter {
+        font-size: 1rem;
+    }
+
+    .achievement-badge .card-title {
+        font-size: 0.9rem;
+    }
+
+    .achievement-badge .card-text {
+        font-size: 0.8rem;
+    }
+
+    .game-mode-card {
+        margin-bottom: 15px;
+    }
+
+    .footer {
+        position: static;
+        margin-top: 30px;
+        padding: 15px 0;
+        font-size: 0.85rem;
+    }
+
+    .footer-text {
+        font-size: 0.85rem;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .footer-text a {
+        display: inline-block;
+        margin: 5px;
+        padding: 8px 12px;
+        background-color: rgba(116, 103, 253, 0.1);
+        border-radius: 4px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        margin-top: 10px;
+    }
+
+    .main-content {
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    body {
+        padding-bottom: 0;
+        min-height: 100%;
+        height: auto;
+    }
+}
+
+.profile-stat-label {
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.text-muted {
+    color: #ffffff !important;
+}
+
+.profile-stat-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.profile-stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 20px;
+}
+
+.profile-stat {
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* Image loading overlay */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+.img-magnifier-container {
+    position: relative;
+}
+.btn-outline-light {
+    color: #ffffff;
+    border-color: #ffffff;
+    background-color: transparent;
+}
+
+.btn-outline-light:hover {
+    color: #000000;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
